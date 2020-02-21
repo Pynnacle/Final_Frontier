@@ -61,7 +61,7 @@ public class CameraMovement : MonoBehaviour
                     //Debug.Log ("Decelerating(X) <--- Displacement = " + displacement_X + ", Velocity = " + prevVelocity_X + "u/s, Time = " + Time.time + "s");
 
                 }
-                else // If the ship was heading in a negative direction...
+                else // If the camera was heading in a negative direction...
                 {
                     deceleration = -maxPanSpeed / decelerationTime;
                     previous_X_velocity = Mathf.Clamp(previous_X_velocity + (-deceleration * Time.deltaTime), -maxPanSpeed, 0); //Should be getting closer to zero

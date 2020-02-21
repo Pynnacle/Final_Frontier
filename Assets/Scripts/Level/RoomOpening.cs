@@ -10,7 +10,7 @@ public enum OpeningSide
 [ExecuteInEditMode]
 public class RoomOpening : MonoBehaviour
 {
-
+    
     public OpeningSide sideOpeningIsOn;
     GameObject roomPicker;
     Vector3 newRoomPosition;
@@ -29,9 +29,10 @@ public class RoomOpening : MonoBehaviour
         roomPicker = GameObject.Find("Random Room Picker");
     }
 
+    // <Summary> This update loop is no longer necessary and can be completely commented out or removed.
     void Update()
     {
-        Debug.Log("Running running running");
+        //Debug.Log("Running running running");
 
         if (CheckIfAdjacentRoomExists()){
 
@@ -45,6 +46,11 @@ public class RoomOpening : MonoBehaviour
 
     }
 
+    /* <Summary> This collider represents an opening in the room
+     * If the player runs into this collider, a check will execute that detects if there is an adjacent room to this opening.
+     * If there is an adjacent room already present, then nothing happens.
+     * If there is no adjacent room present, a random room will be generated.
+     */
     void OnTriggerEnter(Collider obj)
     {
         if (obj.gameObject.tag == "Player" && !CheckIfAdjacentRoomExists())
@@ -80,6 +86,9 @@ public class RoomOpening : MonoBehaviour
         }
     }
 
+    /* <Summary> A raycast is used here to check for an adjacent room.
+     * If a room is found this method will return true, if not this method will return false.
+     */
     bool CheckIfAdjacentRoomExists()
     {
         Ray ray = new Ray(transform.position, transform.right);
