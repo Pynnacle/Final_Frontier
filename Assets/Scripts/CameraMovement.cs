@@ -11,7 +11,7 @@ public class CameraMovement : MonoBehaviour
 
     float acceleration, deceleration;
     float previous_X_velocity, previous_Y_velocity;
-    float displacement_X, displacement_Y;
+    float displacement_X, displacement_Z;
 
     //Boundaries
     public float maxVerticalDistance;
@@ -79,7 +79,7 @@ public class CameraMovement : MonoBehaviour
 
             acceleration = maxPanSpeed / accelerationTime;
             previous_Y_velocity = Mathf.Clamp(previous_Y_velocity + (acceleration * Time.deltaTime), -maxPanSpeed, maxPanSpeed);
-            displacement_Y = previous_Y_velocity * Time.deltaTime;
+            displacement_Z = previous_Y_velocity * Time.deltaTime;
             //Debug.Log ("Accelerating(+Y) ---> Displacement = " + displacement_Y + ", Velocity = " + prevVelocity_Y + "u/s, Time = " + Time.time + "s");
 
             // DOWN
@@ -89,7 +89,7 @@ public class CameraMovement : MonoBehaviour
 
             acceleration = maxPanSpeed / accelerationTime;
             previous_Y_velocity = Mathf.Clamp(previous_Y_velocity + (-acceleration * Time.deltaTime), -maxPanSpeed, maxPanSpeed);
-            displacement_Y = previous_Y_velocity * Time.deltaTime;
+            displacement_Z = previous_Y_velocity * Time.deltaTime;
             //Debug.Log ("Accelerating(-Y) ---> Displacement = " + displacement_Y + ", Velocity = " + prevVelocity_Y + "u/s, Time = " + Time.time + "s");
 
             // Pressing neither UP/W or DOWN/S
@@ -104,7 +104,7 @@ public class CameraMovement : MonoBehaviour
                 {
                     deceleration = -maxPanSpeed / decelerationTime;
                     previous_Y_velocity = Mathf.Clamp(previous_Y_velocity + (deceleration * Time.deltaTime), 0, maxPanSpeed); //Should be getting closer to zero
-                    displacement_Y = previous_Y_velocity * Time.deltaTime;
+                    displacement_Z = previous_Y_velocity * Time.deltaTime;
                     //Debug.Log ("Decelerating(Y) <--- Displacement = " + displacement_Y + ", Velocity = " + prevVelocity_Y + "u/s, Time = " + Time.time + "s");
 
                 }
@@ -112,14 +112,14 @@ public class CameraMovement : MonoBehaviour
                 {
                     deceleration = -maxPanSpeed / decelerationTime;
                     previous_Y_velocity = Mathf.Clamp(previous_Y_velocity + (-deceleration * Time.deltaTime), -maxPanSpeed, 0); //Should be getting closer to zero
-                    displacement_Y = previous_Y_velocity * Time.deltaTime;
+                    displacement_Z = previous_Y_velocity * Time.deltaTime;
                     //Debug.Log ("Decelerating(Y) <--- Displacement = " + displacement_Y + ", Velocity = " + prevVelocity_Y + "u/s, Time = " + Time.time + "s");
                 }
 
             }
         }
 
-        transform.Translate(displacement_X, displacement_Y, 0);
+        transform.Translate(displacement_X, 0f, displacement_Z, Space.World);
 
         //Scrolling sound effect
         if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
