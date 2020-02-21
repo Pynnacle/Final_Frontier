@@ -6,20 +6,16 @@ using UnityEngine;
 public class AdjacentRoomDetector : MonoBehaviour
 {
     public float magnitude;
-    public Color safeColor;
-    public Color warningColor;
-    public Color hitColor;
+    public Color noAdjacentRoomDetected;
+    public Color adjacentRoomDetected;
     public bool hit;
-    public float hitDistance;
-    public float hitPercentage;
-    public float sensitivity;
-
     public string layerToAvoid;
 
     void Update()
     {
 
         Debug.Log("Running running running");
+
         Ray ray = new Ray(transform.position, transform.forward);
         RaycastHit hitInfo;
 
@@ -28,16 +24,14 @@ public class AdjacentRoomDetector : MonoBehaviour
 
         hit = Physics.Raycast(ray, out hitInfo, magnitude, layerMask);
 
-        if (hit)
-        {
-            hitDistance = hitInfo.distance;
-            hitPercentage = 1 - (hitDistance / magnitude);
-            Debug.DrawLine(ray.origin, hitInfo.point, Color.Lerp(warningColor, hitColor, hitPercentage));
+        //Debug.DrawRay(transform.position, Vector3.forward * magnitude, Color.red);
+
+        if (hit) {
+            Debug.DrawRay(transform.position, transform.forward * magnitude, adjacentRoomDetected);
+        } else{
+            Debug.DrawRay(transform.position, transform.forward * magnitude, noAdjacentRoomDetected);
         }
-        else
-        {
-            Debug.DrawLine(transform.position, transform.position + transform.forward * magnitude, safeColor);
-        }
+
 
     }
 }
