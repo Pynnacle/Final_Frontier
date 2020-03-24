@@ -5,12 +5,14 @@ using UnityEngine;
 public class RoomGenerator : MonoBehaviour
 {
     public GameObject[] rooms;
+    public GameObject roomGenerationLightEffect;
 
     public GameObject GenerateRoom_North(GameObject currentRoom)
     {
         Vector3 newRoomPosition = new Vector3(currentRoom.transform.position.x, currentRoom.transform.position.y, currentRoom.transform.position.z + 10);
         GameObject roomGenerated = Instantiate<GameObject>(rooms[Random.Range(0, (rooms.Length) - 1)], newRoomPosition, Quaternion.identity);
-        
+        Instantiate<GameObject>(roomGenerationLightEffect, newRoomPosition, Quaternion.identity);
+
         while (!roomGenerated.GetComponent<Room>().hasSouthExit)
         {
             roomGenerated.GetComponent<Room>().RotateRoom();
@@ -24,6 +26,7 @@ public class RoomGenerator : MonoBehaviour
     {
         Vector3 newRoomPosition = new Vector3(currentRoom.transform.position.x + 10, currentRoom.transform.position.y, currentRoom.transform.position.z);
         GameObject roomGenerated = Instantiate<GameObject>(rooms[Random.Range(0, (rooms.Length) - 1)], newRoomPosition, Quaternion.identity);
+        Instantiate<GameObject>(roomGenerationLightEffect, newRoomPosition, Quaternion.identity);
 
         while (!roomGenerated.GetComponent<Room>().hasWestExit)
         {
@@ -38,6 +41,7 @@ public class RoomGenerator : MonoBehaviour
     {
         Vector3 newRoomPosition = new Vector3(currentRoom.transform.position.x, currentRoom.transform.position.y, currentRoom.transform.position.z - 10);
         GameObject roomGenerated = Instantiate<GameObject>(rooms[Random.Range(0, (rooms.Length) - 1)], newRoomPosition, Quaternion.identity);
+        Instantiate<GameObject>(roomGenerationLightEffect, newRoomPosition, Quaternion.identity);
 
         while (!roomGenerated.GetComponent<Room>().hasNorthExit)
         {
@@ -52,6 +56,7 @@ public class RoomGenerator : MonoBehaviour
     {
         Vector3 newRoomPosition = new Vector3(currentRoom.transform.position.x - 10, currentRoom.transform.position.y, currentRoom.transform.position.z);
         GameObject roomGenerated = Instantiate<GameObject>(rooms[Random.Range(0, (rooms.Length) - 1)], newRoomPosition, Quaternion.identity);
+        Instantiate<GameObject>(roomGenerationLightEffect, newRoomPosition, Quaternion.identity);
 
         while (!roomGenerated.GetComponent<Room>().hasEastExit)
         {

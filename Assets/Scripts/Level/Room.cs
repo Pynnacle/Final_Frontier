@@ -7,17 +7,14 @@ public class Room : MonoBehaviour
     public bool hasNorthExit, hasEastExit, hasSouthExit, hasWestExit;
     public GameObject northRoomSensor, eastRoomSensor, southRoomSensor, westRoomSensor;
     public GameObject roomMesh;
+    public GameObject unexploredRoomIndicator;
 
     // Start is called before the first frame update
     void Start()
     {
-        //Check where to put new room indicators
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        //When a new room is generated, it immediately checks where adjacent unexplored rooms are and spawns an effect to indicate you can explore them.
+        SpawnUnexploredRoomIndicators();
+        MakeRoomVisible();
     }
 
     public void RotateRoom()
@@ -197,6 +194,46 @@ public class Room : MonoBehaviour
         {
             return (false);
         }
+    }
+
+    void SpawnUnexploredRoomIndicators()
+    {
+        northRoomSensor.GetComponent<AdjacentRoomDetector>().CheckForAdjacentRoom();
+        eastRoomSensor.GetComponent<AdjacentRoomDetector>().CheckForAdjacentRoom();
+        southRoomSensor.GetComponent<AdjacentRoomDetector>().CheckForAdjacentRoom();
+        westRoomSensor.GetComponent<AdjacentRoomDetector>().CheckForAdjacentRoom();
+
+        //If there is an exit on the north && there is no existing room to the north, spawn an effect that indicates you can go north.
+        if (hasNorthExit && !northRoomSensor.GetComponent<AdjacentRoomDetector>().hit)
+        {
+            Instantiate<GameObject>(unexploredRoomIndicator, new Vector3(transform.position.x, transform.position.y, transform.position.z + 10), Quaternion.Euler(-90f, 0f, 0f));
+        }
+
+        //If there is an exit on the east && there is no existing room to the east, spawn an effect that indicates you can go east.
+        if (hasEastExit && !eastRoomSensor.GetComponent<AdjacentRoomDetector>().hit)
+        {
+            Instantiate<GameObject>(unexploredRoomIndicator, new Vector3(transform.position.x + 10, transform.position.y, transform.position.z), Quaternion.Euler(-90f, 0f, 0f));
+        }
+
+        //If there is an exit on the south && there is no existing room to the south, spawn an effect that indicates you can go south.
+        if (hasSouthExit && !southRoomSensor.GetComponent<AdjacentRoomDetector>().hit)
+        {
+            Instantiate<GameObject>(unexploredRoomIndicator, new Vector3(transform.position.x, transform.position.y, transform.position.z - 10), Quaternion.Euler(-90f, 0f, 0f));
+        }
+
+        //If there is an exit on the west && there is no existing room to the west, spawn an effect that indicates you can go west.
+        if (hasWestExit && !westRoomSensor.GetComponent<AdjacentRoomDetector>().hit)
+        {
+            Instantiate<GameObject>(unexploredRoomIndicator, new Vector3(transform.position.x - 10, transform.position.y, transform.position.z), Quaternion.Euler(-90f, 0f, 0f));
+        }
+
+    }
+
+    //Right now the purpose of this function is simply because I want a delay between when the light effect spawns and when the room actually shows up.
+    //I could've just used a coroutine inside the room generator, but ehhhh this'll do for now.
+    void MakeRoomVisible()
+    {
+        roomMesh.SetActive(true);
     }
 
 }

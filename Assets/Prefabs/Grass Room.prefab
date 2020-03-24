@@ -27,7 +27,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7258325880880244177}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 10}
   m_LocalScale: {x: 10, y: 1, z: 10}
   m_Children:
@@ -119,6 +119,8 @@ MonoBehaviour:
   southRoomSensor: {fileID: 7258325881753092426}
   westRoomSensor: {fileID: 7258325881553968630}
   roomMesh: {fileID: 8672120637133937200}
+  unexploredRoomIndicator: {fileID: 6885172865088894678, guid: 61ef72c7655acf04cb7259e8ffdb7a8f,
+    type: 3}
 --- !u!1 &7258325880900285643
 GameObject:
   m_ObjectHideFlags: 0
@@ -332,7 +334,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3855375668039266899
 Transform:
   m_ObjectHideFlags: 0
