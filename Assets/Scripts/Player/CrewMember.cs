@@ -35,6 +35,7 @@ public class CrewMember : MonoBehaviour
             { //Percent of lerp
                 transform.position = endPosition;
                 isMoving = false;
+                UpdateCommandInterface();
                 return;
             }
 
@@ -50,12 +51,19 @@ public class CrewMember : MonoBehaviour
         startTime = Time.time;
         startPosition = transform.position;
         endPosition = new Vector3(targetRoom.transform.position.x, transform.position.y, targetRoom.transform.position.z);
+        currentLocation = targetRoom;
     }
 
     void OnMouseDown()
     {
         Debug.Log(name + " was selected.");
         commandInterface.SetActive(true);
+        UpdateCommandInterface();
+        
+    }
+
+    void UpdateCommandInterface()
+    {
         commandInterface.GetComponent<CommandInterface>().selectedCrewMember = gameObject;
         canGoNorth = currentLocation.GetComponent<Room>().CanGoNorth();
         canGoEast = currentLocation.GetComponent<Room>().CanGoEast();

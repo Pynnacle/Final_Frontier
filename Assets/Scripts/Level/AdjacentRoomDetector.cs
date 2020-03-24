@@ -52,8 +52,4 @@ public class AdjacentRoomDetector : MonoBehaviour
         return (adjacentRoom);
     }
 
-    /* <Summary> This collider represents an opening in the room
-                newRoomPosition = new Vector3(transform.parent.transform.position.x, transform.parent.transform.position.y, transform.parent.transform.position.z - 10);
-                lastRoomGenerated = Instantiate<GameObject>(roomPicker.GetComponent<RoomPicker>().PickRoom(), newRoomPosition, transform.parent.transform.rotation);
-    */
 }

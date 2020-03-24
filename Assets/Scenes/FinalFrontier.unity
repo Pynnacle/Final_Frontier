@@ -120,12 +120,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &92107828 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4875088385713478791, guid: e8d3db694ce06ad41afa360f47003ba7,
-    type: 3}
-  m_PrefabInstance: {fileID: 1864318996}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &178982505
 GameObject:
   m_ObjectHideFlags: 0
@@ -516,11 +510,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 296856708}
   m_CullTransparentMesh: 0
---- !u!4 &469084819 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4875088385688633009, guid: e8d3db694ce06ad41afa360f47003ba7,
+--- !u!1 &300734726 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7258325880880244177, guid: e8d3db694ce06ad41afa360f47003ba7,
     type: 3}
-  m_PrefabInstance: {fileID: 4875088385401071547}
+  m_PrefabInstance: {fileID: 7258325880580668631}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &300734730 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7258325880880244189, guid: e8d3db694ce06ad41afa360f47003ba7,
+    type: 3}
+  m_PrefabInstance: {fileID: 7258325880580668631}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &602623089
 GameObject:
@@ -603,7 +603,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 602623092}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 794025199}
+        m_MethodName: GoEast
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &602623092
@@ -644,12 +655,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 602623089}
   m_CullTransparentMesh: 0
---- !u!1 &664341288 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4875088386373846682, guid: e8d3db694ce06ad41afa360f47003ba7,
-    type: 3}
-  m_PrefabInstance: {fileID: 4875088385401071547}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &702357590
 GameObject:
   m_ObjectHideFlags: 0
@@ -731,7 +736,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 702357593}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 794025199}
+        m_MethodName: GoSouth
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &702357593
@@ -894,6 +910,9 @@ MonoBehaviour:
   moveDownButton: {fileID: 702357590}
   moveLeftButton: {fileID: 1038623138}
   selectedCrewMember: {fileID: 0}
+  roomGenerator: {fileID: 1048484745}
+  moveDelayAfterGeneratingNewRoom: 0
+  destinationReached: 0
 --- !u!1 &805630719
 GameObject:
   m_ObjectHideFlags: 0
@@ -1040,12 +1059,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e7965cb5f3b6b49439772edd4131b2b0, type: 3}
---- !u!4 &874016304 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4875088385688633009, guid: e8d3db694ce06ad41afa360f47003ba7,
-    type: 3}
-  m_PrefabInstance: {fileID: 1864318996}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1016679827 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1112338128624330, guid: e7965cb5f3b6b49439772edd4131b2b0,
@@ -1069,8 +1082,8 @@ MonoBehaviour:
   agility: 3
   intellect: 5
   endurance: 4
-  moveDuration: 2
-  currentLocation: {fileID: 2043499347}
+  moveDuration: 1
+  currentLocation: {fileID: 300734726}
   commandInterface: {fileID: 794025194}
   canGoNorth: 0
   canGoEast: 0
@@ -1158,7 +1171,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1038623141}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 794025199}
+        m_MethodName: GoWest
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1038623141
@@ -1225,15 +1249,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1048484745}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee387e340790319428cb6aa3087a9c01, type: 3}
+  m_Script: {fileID: 11500000, guid: 08126ec2a010f434ea92c2c0d3ddaf4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rooms:
-  - {fileID: 4875088385688633021, guid: e8d3db694ce06ad41afa360f47003ba7, type: 3}
-  - {fileID: 555799307897386595, guid: c6b8c981b69152e4ca8c64e8cbcfd007, type: 3}
-  - {fileID: 4458549663721729826, guid: 0c64f110568f425469b53b8f184a8141, type: 3}
-  - {fileID: 4872672916344742851, guid: 1edc10599a81c7b4ab5bd2e2ae61f1c1, type: 3}
-  - {fileID: 7281186502318477376, guid: 740fcb753cc7ae044a052851de0d0176, type: 3}
+  - {fileID: 7258325880880244177, guid: e8d3db694ce06ad41afa360f47003ba7, type: 3}
 --- !u!4 &1048484747
 Transform:
   m_ObjectHideFlags: 0
@@ -1248,18 +1268,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1180738072 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4875088386426444326, guid: e8d3db694ce06ad41afa360f47003ba7,
-    type: 3}
-  m_PrefabInstance: {fileID: 4875088385401071547}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1193497178 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4875088385719119783, guid: e8d3db694ce06ad41afa360f47003ba7,
-    type: 3}
-  m_PrefabInstance: {fileID: 1864318996}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1279873801
 GameObject:
   m_ObjectHideFlags: 0
@@ -1371,12 +1379,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1327201618 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4875088385713478791, guid: e8d3db694ce06ad41afa360f47003ba7,
-    type: 3}
-  m_PrefabInstance: {fileID: 4875088385401071547}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1440602235
 GameObject:
   m_ObjectHideFlags: 0
@@ -1729,8 +1731,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 469084819}
-  - {fileID: 874016304}
+  - {fileID: 300734730}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2012,106 +2013,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1692540364}
   m_CullTransparentMesh: 0
---- !u!1 &1779085557 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4875088385719119783, guid: e8d3db694ce06ad41afa360f47003ba7,
-    type: 3}
-  m_PrefabInstance: {fileID: 4875088385401071547}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &1864318996
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1588123660}
-    m_Modifications:
-    - target: {fileID: 4875088385688633021, guid: e8d3db694ce06ad41afa360f47003ba7,
-        type: 3}
-      propertyPath: m_Name
-      value: Grass Room (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 4875088385688633009, guid: e8d3db694ce06ad41afa360f47003ba7,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4875088385688633009, guid: e8d3db694ce06ad41afa360f47003ba7,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4875088385688633009, guid: e8d3db694ce06ad41afa360f47003ba7,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 4875088385688633009, guid: e8d3db694ce06ad41afa360f47003ba7,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4875088385688633009, guid: e8d3db694ce06ad41afa360f47003ba7,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4875088385688633009, guid: e8d3db694ce06ad41afa360f47003ba7,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4875088385688633009, guid: e8d3db694ce06ad41afa360f47003ba7,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4875088385688633009, guid: e8d3db694ce06ad41afa360f47003ba7,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4875088385688633009, guid: e8d3db694ce06ad41afa360f47003ba7,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4875088385688633009, guid: e8d3db694ce06ad41afa360f47003ba7,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4875088385688633009, guid: e8d3db694ce06ad41afa360f47003ba7,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6369344105918951365, guid: e8d3db694ce06ad41afa360f47003ba7,
-        type: 3}
-      propertyPath: northRoomSensor
-      value: 
-      objectReference: {fileID: 1193497178}
-    - target: {fileID: 6369344105918951365, guid: e8d3db694ce06ad41afa360f47003ba7,
-        type: 3}
-      propertyPath: eastRoomSensor
-      value: 
-      objectReference: {fileID: 92107828}
-    - target: {fileID: 6369344105918951365, guid: e8d3db694ce06ad41afa360f47003ba7,
-        type: 3}
-      propertyPath: southRoomSensor
-      value: 
-      objectReference: {fileID: 2088747656}
-    - target: {fileID: 6369344105918951365, guid: e8d3db694ce06ad41afa360f47003ba7,
-        type: 3}
-      propertyPath: westRoomSensor
-      value: 
-      objectReference: {fileID: 2027984295}
-    - target: {fileID: 6369344105918951365, guid: e8d3db694ce06ad41afa360f47003ba7,
-        type: 3}
-      propertyPath: hasSouthExit
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: e8d3db694ce06ad41afa360f47003ba7, type: 3}
 --- !u!1 &2022693558
 GameObject:
   m_ObjectHideFlags: 0
@@ -2203,115 +2104,77 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &2027984295 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4875088386373846682, guid: e8d3db694ce06ad41afa360f47003ba7,
-    type: 3}
-  m_PrefabInstance: {fileID: 1864318996}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &2043499347 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4875088385688633021, guid: e8d3db694ce06ad41afa360f47003ba7,
-    type: 3}
-  m_PrefabInstance: {fileID: 4875088385401071547}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &2088747656 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4875088386426444326, guid: e8d3db694ce06ad41afa360f47003ba7,
-    type: 3}
-  m_PrefabInstance: {fileID: 1864318996}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &4875088385401071547
+--- !u!1001 &7258325880580668631
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 1588123660}
     m_Modifications:
-    - target: {fileID: 4875088385688633021, guid: e8d3db694ce06ad41afa360f47003ba7,
+    - target: {fileID: 7258325880880244177, guid: e8d3db694ce06ad41afa360f47003ba7,
         type: 3}
       propertyPath: m_Name
       value: Grass Room
       objectReference: {fileID: 0}
-    - target: {fileID: 4875088385688633009, guid: e8d3db694ce06ad41afa360f47003ba7,
+    - target: {fileID: 7258325880880244189, guid: e8d3db694ce06ad41afa360f47003ba7,
         type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4875088385688633009, guid: e8d3db694ce06ad41afa360f47003ba7,
+    - target: {fileID: 7258325880880244189, guid: e8d3db694ce06ad41afa360f47003ba7,
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4875088385688633009, guid: e8d3db694ce06ad41afa360f47003ba7,
+    - target: {fileID: 7258325880880244189, guid: e8d3db694ce06ad41afa360f47003ba7,
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 4875088385688633009, guid: e8d3db694ce06ad41afa360f47003ba7,
+    - target: {fileID: 7258325880880244189, guid: e8d3db694ce06ad41afa360f47003ba7,
         type: 3}
       propertyPath: m_LocalRotation.x
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 4875088385688633009, guid: e8d3db694ce06ad41afa360f47003ba7,
+    - target: {fileID: 7258325880880244189, guid: e8d3db694ce06ad41afa360f47003ba7,
         type: 3}
       propertyPath: m_LocalRotation.y
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 4875088385688633009, guid: e8d3db694ce06ad41afa360f47003ba7,
+    - target: {fileID: 7258325880880244189, guid: e8d3db694ce06ad41afa360f47003ba7,
         type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 4875088385688633009, guid: e8d3db694ce06ad41afa360f47003ba7,
+    - target: {fileID: 7258325880880244189, guid: e8d3db694ce06ad41afa360f47003ba7,
         type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4875088385688633009, guid: e8d3db694ce06ad41afa360f47003ba7,
+    - target: {fileID: 7258325880880244189, guid: e8d3db694ce06ad41afa360f47003ba7,
         type: 3}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4875088385688633009, guid: e8d3db694ce06ad41afa360f47003ba7,
+    - target: {fileID: 7258325880880244189, guid: e8d3db694ce06ad41afa360f47003ba7,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4875088385688633009, guid: e8d3db694ce06ad41afa360f47003ba7,
+    - target: {fileID: 7258325880880244189, guid: e8d3db694ce06ad41afa360f47003ba7,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4875088385688633009, guid: e8d3db694ce06ad41afa360f47003ba7,
+    - target: {fileID: 7258325880880244189, guid: e8d3db694ce06ad41afa360f47003ba7,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6369344105918951365, guid: e8d3db694ce06ad41afa360f47003ba7,
+    - target: {fileID: 2497119468039817351, guid: e8d3db694ce06ad41afa360f47003ba7,
         type: 3}
-      propertyPath: northRoomSensor
+      propertyPath: adjacentRoom
       value: 
-      objectReference: {fileID: 1779085557}
-    - target: {fileID: 6369344105918951365, guid: e8d3db694ce06ad41afa360f47003ba7,
-        type: 3}
-      propertyPath: eastRoomSensor
-      value: 
-      objectReference: {fileID: 1327201618}
-    - target: {fileID: 6369344105918951365, guid: e8d3db694ce06ad41afa360f47003ba7,
-        type: 3}
-      propertyPath: southRoomSensor
-      value: 
-      objectReference: {fileID: 1180738072}
-    - target: {fileID: 6369344105918951365, guid: e8d3db694ce06ad41afa360f47003ba7,
-        type: 3}
-      propertyPath: westRoomSensor
-      value: 
-      objectReference: {fileID: 664341288}
-    - target: {fileID: 6369344105918951365, guid: e8d3db694ce06ad41afa360f47003ba7,
-        type: 3}
-      propertyPath: hasNorthExit
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8d3db694ce06ad41afa360f47003ba7, type: 3}
