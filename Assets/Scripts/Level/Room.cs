@@ -6,15 +6,16 @@ public class Room : MonoBehaviour
 {
     public bool hasNorthExit, hasEastExit, hasSouthExit, hasWestExit;
     public GameObject northRoomSensor, eastRoomSensor, southRoomSensor, westRoomSensor;
-    public GameObject roomMesh;
+    public MeshRenderer tile; //Temporary
+    public GameObject roomMesh; //Temporary
     public GameObject unexploredRoomIndicator;
 
     // Start is called before the first frame update
     void Start()
     {
         //When a new room is generated, it immediately checks where adjacent unexplored rooms are and spawns an effect to indicate you can explore them.
-        SpawnUnexploredRoomIndicators();
-        MakeRoomVisible();
+        Invoke("MakeRoomVisible", 2f);
+        Invoke("SpawnUnexploredRoomIndicators", 2f);
     }
 
     public void RotateRoom()
@@ -233,6 +234,7 @@ public class Room : MonoBehaviour
     //I could've just used a coroutine inside the room generator, but ehhhh this'll do for now.
     void MakeRoomVisible()
     {
+        tile.enabled = true;
         roomMesh.SetActive(true);
     }
 
