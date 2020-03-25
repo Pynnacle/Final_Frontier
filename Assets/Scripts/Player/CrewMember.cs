@@ -13,6 +13,7 @@ public class CrewMember : MonoBehaviour
     public int endurance;
 
     //Movement
+    public int moveLimit;
     public float moveDuration;
     float startTime = 0f, timeElapsed;
     Vector3 startPosition, endPosition;
@@ -21,9 +22,9 @@ public class CrewMember : MonoBehaviour
     //References
     public GameObject currentLocation; //Reference to the room crew member is in.
     public GameObject commandInterface; //Reference to the command interface.
-
-    public bool canGoNorth, canGoEast, canGoSouth, canGoWest;
+    
     public bool turnIsOver;
+    bool canGoNorth, canGoEast, canGoSouth, canGoWest;
 
     // Update is called once per frame
     void Update()
@@ -31,10 +32,12 @@ public class CrewMember : MonoBehaviour
         if (isMoving)
         {
             float percent = (Time.time - startTime) / moveDuration;
+            //If/when the crew member has reached his destination
             if (percent >= 1)
-            { //Percent of lerp
+            { 
                 transform.position = endPosition;
                 isMoving = false;
+                moveLimit -= 1;
                 UpdateCommandInterface();
                 return;
             }
@@ -56,10 +59,12 @@ public class CrewMember : MonoBehaviour
 
     void OnMouseDown()
     {
-        Debug.Log(name + " was selected.");
-        commandInterface.SetActive(true);
-        UpdateCommandInterface();
-        
+        if (!turnIsOver)
+        {
+            Debug.Log(name + " was selected.");
+            commandInterface.SetActive(true);
+            UpdateCommandInterface();
+        }
     }
 
     void UpdateCommandInterface()

@@ -928,6 +928,7 @@ MonoBehaviour:
   moveRightButton: {fileID: 602623089}
   moveDownButton: {fileID: 702357590}
   moveLeftButton: {fileID: 1038623138}
+  movesRemainingDisplay: {fileID: 1536801368}
   selectedCrewMember: {fileID: 0}
   roomGenerator: {fileID: 1048484745}
   moveDelayAfterGeneratingNewRoom: 2
@@ -1101,13 +1102,10 @@ MonoBehaviour:
   agility: 3
   intellect: 5
   endurance: 4
+  moveLimit: 10
   moveDuration: 1
   currentLocation: {fileID: 300734726}
   commandInterface: {fileID: 794025194}
-  canGoNorth: 0
-  canGoEast: 0
-  canGoSouth: 0
-  canGoWest: 0
   turnIsOver: 0
 --- !u!1 &1038623138
 GameObject:
