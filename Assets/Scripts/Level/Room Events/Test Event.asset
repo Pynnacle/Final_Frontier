@@ -15,3 +15,13 @@ MonoBehaviour:
   name: Test Event
   description: This event is a test.
   buttonText: Okay
+  statChecked: 0
+  goodOutcomeStatAffected: 0
+  goodOutcomeStatDifference: 2
+  goodOutcomeText: Something good happened!
+  neutralOutcomeStatAffected: 0
+  neutralOutcomeStatDifference: 0
+  neutralOutcomeText: Nothing happened!
+  badOutcomeStatAffected: 3
+  badOutcomeStatDifference: -3
+  badOutcomeText: Somthing bad happened!

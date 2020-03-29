@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum Stat
+{
+    POWER, AGILITY, INTELLECT, ENDURANCE
+}
+
 public class CrewMember : MonoBehaviour
 {
     public new string name;
@@ -59,7 +64,6 @@ public class CrewMember : MonoBehaviour
         Debug.Log(name + " was selected.");
         commandInterface.SetActive(true);
         UpdateCommandInterface();
-        
     }
 
     void UpdateCommandInterface()
