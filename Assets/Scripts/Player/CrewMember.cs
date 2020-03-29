@@ -10,6 +10,7 @@ public enum Stat
 public class CrewMember : MonoBehaviour
 {
     public new string name;
+    public Sprite portrait;
 
     //Statistics
     public int power;
@@ -56,8 +57,11 @@ public class CrewMember : MonoBehaviour
         }
     }
 
-    //Called when a direction on the command interface is clicked
-    //Causes the code in the this.update loop to run.
+
+    /* <Summary>
+     * Called when a direction on the command interface is clicked.
+     * Causes the code in the this^update loop to run.
+     */
     public void Move(GameObject targetRoom, bool isNewRoom)
     {
         isMoving = true;
@@ -75,6 +79,10 @@ public class CrewMember : MonoBehaviour
         UpdateCommandInterface();
     }
 
+    /* <Summary>
+     * Called when this crew member is clicked on.
+     * Another script (Room) determines which directions it is possible to go, then this function passes that info to the command interface.
+     */
     void UpdateCommandInterface()
     {
         commandInterface.GetComponent<CommandInterface>().selectedCrewMember = gameObject;
@@ -83,6 +91,7 @@ public class CrewMember : MonoBehaviour
         canGoSouth = currentLocation.GetComponent<Room>().CanGoSouth();
         canGoWest = currentLocation.GetComponent<Room>().CanGoWest();
         commandInterface.GetComponent<CommandInterface>().UpdateDirectionsCrewMemberCanTravel(canGoNorth, canGoEast, canGoSouth, canGoWest);
+        commandInterface.GetComponent<CommandInterface>().UpdateCrewMemberProfile();
     }
 
 }

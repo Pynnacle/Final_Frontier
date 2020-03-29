@@ -18,10 +18,13 @@ public class Room : MonoBehaviour
         Invoke("SpawnUnexploredRoomIndicators", 2f);
     }
 
+    /* <Summary>
+     * Called when a new unexplored room does not have a matching exit with the 'origin' room. For example, if the room you're in has en exit on the right, so you go to explore a new room to the right, but the room that is generated doesn't have an exit on the left.
+     * The new room rotates 90 degrees until it has a matching exit with the origin room.
+     */
     public void RotateRoom()
     {
-        //The room model (separate) is rotated , not the parent, so that the raycasts will always stay the same (ie: a raycast pointing north will always point north)
-        roomMesh.transform.Rotate(new Vector3(0f, 90f, 0f));
+        roomMesh.transform.Rotate(new Vector3(0f, 90f, 0f)); //The room model (separate) is rotated, not the parent game object, so that the raycasts will always stay the same (ie: a raycast pointing north will always point north)
 
         bool hadNorthExit = hasNorthExit;
         bool hadEastExit = hasEastExit;
@@ -71,8 +74,11 @@ public class Room : MonoBehaviour
 
     }
 
-    //The following methods check which directions the selected crew member can move
-    //They return true if there is an exit in that direction && (there is no existing room, or existing room has matching exit (ie: north and south match))
+
+    /* <Summary>
+     * The following methods check which directions the selected crew member can move.
+     * They return true if there is an exit in that direction AND (there is no existing room, OR existing room has matching exit (ie: north and south match))
+     */
     public bool CanGoNorth()
     {
         if (hasNorthExit){ //You can only move up if the room you're in has an exit on the north.

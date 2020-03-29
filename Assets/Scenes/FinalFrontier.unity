@@ -907,7 +907,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Ag: 7'
+  m_Text: 'Ag: 0'
 --- !u!222 &556929478
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -998,7 +998,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Int: 6'
+  m_Text: 'Int: 0'
 --- !u!222 &581277712
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1434,7 +1434,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Pow: 4'
+  m_Text: 'Pow: 0'
 --- !u!222 &781024183
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1475,6 +1475,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1548196440}
+  - {fileID: 1803083874}
   m_Father: {fileID: 1315177301}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1555,11 +1556,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f79a11ff42addd5449d013b40301d711, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectedCrewMember: {fileID: 0}
   moveUpButton: {fileID: 180153277}
   moveRightButton: {fileID: 602623089}
   moveDownButton: {fileID: 702357590}
   moveLeftButton: {fileID: 1038623138}
-  selectedCrewMember: {fileID: 0}
+  crewMemberName_txt: {fileID: 1393003829}
+  crewMemberPower_txt: {fileID: 781024182}
+  crewMemberAgility_txt: {fileID: 556929477}
+  crewMemberIntellect_txt: {fileID: 581277711}
+  crewMemberEndurance_txt: {fileID: 946475111}
+  crewMemberPortrait_img: {fileID: 1577166288}
   roomGenerator: {fileID: 1048484745}
   moveDelayAfterGeneratingNewRoom: 2
   destinationReached: 0
@@ -1779,7 +1786,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'End: 10'
+  m_Text: 'End: 0'
 --- !u!222 &946475112
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1807,10 +1814,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Captain Carl
+  portrait: {fileID: 21300000, guid: 39314d3c4efefbc4bb7195d85b5beb09, type: 3}
   power: 4
-  agility: 3
-  intellect: 5
-  endurance: 4
+  agility: 5
+  intellect: 6
+  endurance: 9
   moveDuration: 1
   currentLocation: {fileID: 300734726}
   commandInterface: {fileID: 794025194}
@@ -2079,105 +2087,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1202656399}
   m_CullTransparentMesh: 0
---- !u!1 &1233569489
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1233569490}
-  - component: {fileID: 1233569493}
-  - component: {fileID: 1233569492}
-  - component: {fileID: 1233569491}
-  m_Layer: 0
-  m_Name: Crew Member Profile
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1233569490
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1233569489}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
-  m_Children:
-  - {fileID: 1803083874}
-  m_Father: {fileID: 1315177301}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 0}
---- !u!114 &1233569491
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1233569489}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
-  m_BlockingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
---- !u!114 &1233569492
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1233569489}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
-  m_ReferencePixelsPerUnit: 100
-  m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
-  m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
-  m_PhysicalUnit: 3
-  m_FallbackScreenDPI: 96
-  m_DefaultSpriteDPI: 96
-  m_DynamicPixelsPerUnit: 1
---- !u!223 &1233569493
-Canvas:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1233569489}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
-  m_PixelPerfect: 0
-  m_ReceivesEvents: 1
-  m_OverrideSorting: 0
-  m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
-  m_TargetDisplay: 0
 --- !u!1 &1267556719
 GameObject:
   m_ObjectHideFlags: 0
@@ -2499,7 +2408,6 @@ Transform:
   - {fileID: 178982509}
   - {fileID: 794025195}
   - {fileID: 2072939132}
-  - {fileID: 1233569490}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2537,8 +2445,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 60.25, y: 30}
-  m_SizeDelta: {x: 211, y: 40}
+  m_AnchoredPosition: {x: 64.75, y: 30}
+  m_SizeDelta: {x: 220, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1393003829
 MonoBehaviour:
@@ -2573,7 +2481,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Captain Carl
+  m_Text: Cpt. Popeye
 --- !u!222 &1393003830
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2922,7 +2830,7 @@ GameObject:
   - component: {fileID: 1548196442}
   - component: {fileID: 1548196441}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Directional Pad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3472,7 +3380,7 @@ GameObject:
   - component: {fileID: 1803083876}
   - component: {fileID: 1803083875}
   m_Layer: 0
-  m_Name: Panel
+  m_Name: Crew Member Profile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3485,7 +3393,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1803083873}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -3495,8 +3403,8 @@ RectTransform:
   - {fileID: 556929476}
   - {fileID: 581277710}
   - {fileID: 946475110}
-  m_Father: {fileID: 1233569490}
-  m_RootOrder: 0
+  m_Father: {fileID: 794025195}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -3892,6 +3800,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomEventPopup: {fileID: 1539616187}
   outcomeOfEventPopup: {fileID: 509392515}
+  commandInterface: {fileID: 794025194}
   eventName: {fileID: 757624526}
   eventDescription: {fileID: 1563227787}
   eventButtonText: {fileID: 440580676}

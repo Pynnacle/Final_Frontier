@@ -5,27 +5,26 @@ using UnityEngine.UI;
 
 public class CommandInterface : MonoBehaviour
 {
-    public GameObject moveUpButton, moveRightButton, moveDownButton, moveLeftButton;
-    public GameObject selectedCrewMember;
-    public GameObject roomGenerator;
-    public float moveDelayAfterGeneratingNewRoom;
+    public GameObject selectedCrewMember; //This will be whichever crew member you last clicked on.
+
+    //References to each directional button.
+    public GameObject moveUpButton, moveRightButton, moveDownButton, moveLeftButton; 
+
+    //References to each UI component of the crew member profile display.
+    public Text crewMemberName_txt, crewMemberPower_txt, crewMemberAgility_txt, crewMemberIntellect_txt, crewMemberEndurance_txt;
+    public Image crewMemberPortrait_img;
+
+    public GameObject roomGenerator; //Reference to the game object that handles room generation.
+    public float moveDelayAfterGeneratingNewRoom; //How long the character waits before moving to an unexplored room.
     public bool destinationReached; //Disables the command interface while a crew member is moving to a new room.
 
     GameObject newRoom; //Reference to the last room that was generated.
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    //Only directions that it is possible to go in will appear in the command interface.
+    /* <Summary>
+     * Called after a crew member is clicked on.
+     * Only directions that it is possible to go in will appear in the command interface.
+     */
     public void UpdateDirectionsCrewMemberCanTravel(bool north, bool east, bool south, bool west)
     {
         if (north) {
@@ -51,6 +50,21 @@ public class CommandInterface : MonoBehaviour
         } else {
             moveLeftButton.SetActive(false);
         }
+    }
+
+
+    /* <Summary>
+     * Also called after a crew member is clicked on.
+     * Updates the profile that is displayed in the top left corner.
+     */
+    public void UpdateCrewMemberProfile()
+    {
+        crewMemberName_txt.text = selectedCrewMember.GetComponent<CrewMember>().name;
+        crewMemberPower_txt.text = "Pow: " + selectedCrewMember.GetComponent<CrewMember>().power.ToString();
+        crewMemberAgility_txt.text = "Ag: " + selectedCrewMember.GetComponent<CrewMember>().agility.ToString();
+        crewMemberIntellect_txt.text = "Int: " + selectedCrewMember.GetComponent<CrewMember>().intellect.ToString();
+        crewMemberEndurance_txt.text = "End: " + selectedCrewMember.GetComponent<CrewMember>().endurance.ToString();
+        crewMemberPortrait_img.sprite = selectedCrewMember.GetComponent<CrewMember>().portrait;
     }
 
     //Fires when the move up button is clicked.

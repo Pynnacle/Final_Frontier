@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class RoomEventHandler : MonoBehaviour
 {
     public GameObject roomEventPopup, outcomeOfEventPopup;
+    public GameObject commandInterface;
     public Text eventName, eventDescription, eventButtonText, outcomeOfEventText;
     public RoomEvent[] roomEvents;
 
@@ -21,8 +22,7 @@ public class RoomEventHandler : MonoBehaviour
 
         int randomNum = Random.Range(1, 11); //Generate a random whole number between 1 and 10.
 
-        /* So what's going on here is:
-         * 
+        /* <Summary>
          * 
          * 
          * 
@@ -335,5 +335,6 @@ public class RoomEventHandler : MonoBehaviour
     public void HideOutcomeOfEvent()
     {
         outcomeOfEventPopup.SetActive(false);
+        commandInterface.GetComponent<CommandInterface>().UpdateCrewMemberProfile();
     }
 }
