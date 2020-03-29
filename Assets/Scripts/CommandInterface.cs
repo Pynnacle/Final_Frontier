@@ -60,7 +60,7 @@ public class CommandInterface : MonoBehaviour
         if (selectedCrewMember.GetComponent<CrewMember>().currentLocation.GetComponent<Room>().northRoomSensor.GetComponent<AdjacentRoomDetector>().hit)
         {
             //Tell the selected crew member to move to that room.
-            selectedCrewMember.GetComponent<CrewMember>().Move(selectedCrewMember.GetComponent<CrewMember>().currentLocation.GetComponent<Room>().northRoomSensor.GetComponent<AdjacentRoomDetector>().adjacentRoom);
+            selectedCrewMember.GetComponent<CrewMember>().Move(selectedCrewMember.GetComponent<CrewMember>().currentLocation.GetComponent<Room>().northRoomSensor.GetComponent<AdjacentRoomDetector>().adjacentRoom, false);
         }
         else //If there is only an exit to the north, but no room exists there yet...
         {
@@ -77,7 +77,7 @@ public class CommandInterface : MonoBehaviour
         if (selectedCrewMember.GetComponent<CrewMember>().currentLocation.GetComponent<Room>().eastRoomSensor.GetComponent<AdjacentRoomDetector>().hit)
         {
             //Tell the selected crew member to move to that room.
-            selectedCrewMember.GetComponent<CrewMember>().Move(selectedCrewMember.GetComponent<CrewMember>().currentLocation.GetComponent<Room>().eastRoomSensor.GetComponent<AdjacentRoomDetector>().adjacentRoom);
+            selectedCrewMember.GetComponent<CrewMember>().Move(selectedCrewMember.GetComponent<CrewMember>().currentLocation.GetComponent<Room>().eastRoomSensor.GetComponent<AdjacentRoomDetector>().adjacentRoom, false);
         }
         else //If there is only an exit to the east, but no room exists there yet...
         {
@@ -94,7 +94,7 @@ public class CommandInterface : MonoBehaviour
         if (selectedCrewMember.GetComponent<CrewMember>().currentLocation.GetComponent<Room>().southRoomSensor.GetComponent<AdjacentRoomDetector>().hit)
         {
             //Tell the selected crew member to move to that room.
-            selectedCrewMember.GetComponent<CrewMember>().Move(selectedCrewMember.GetComponent<CrewMember>().currentLocation.GetComponent<Room>().southRoomSensor.GetComponent<AdjacentRoomDetector>().adjacentRoom);
+            selectedCrewMember.GetComponent<CrewMember>().Move(selectedCrewMember.GetComponent<CrewMember>().currentLocation.GetComponent<Room>().southRoomSensor.GetComponent<AdjacentRoomDetector>().adjacentRoom, false);
         }
         else //If there is only an exit to the south, but no room exists there yet...
         {
@@ -111,7 +111,7 @@ public class CommandInterface : MonoBehaviour
         if (selectedCrewMember.GetComponent<CrewMember>().currentLocation.GetComponent<Room>().westRoomSensor.GetComponent<AdjacentRoomDetector>().hit)
         {
             //Tell the selected crew member to move to that room.
-            selectedCrewMember.GetComponent<CrewMember>().Move(selectedCrewMember.GetComponent<CrewMember>().currentLocation.GetComponent<Room>().westRoomSensor.GetComponent<AdjacentRoomDetector>().adjacentRoom);
+            selectedCrewMember.GetComponent<CrewMember>().Move(selectedCrewMember.GetComponent<CrewMember>().currentLocation.GetComponent<Room>().westRoomSensor.GetComponent<AdjacentRoomDetector>().adjacentRoom, false);
         }
         else //If there is only an exit to the west, but no room exists there yet...
         {
@@ -124,6 +124,6 @@ public class CommandInterface : MonoBehaviour
 
     void MoveCrewMember()
     {
-        selectedCrewMember.GetComponent<CrewMember>().Move(newRoom);
+        selectedCrewMember.GetComponent<CrewMember>().Move(newRoom, true);
     }
 }

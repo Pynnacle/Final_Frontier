@@ -22,10 +22,12 @@ public class CrewMember : MonoBehaviour
     float startTime = 0f, timeElapsed;
     Vector3 startPosition, endPosition;
     bool isMoving;
+    bool triggerRoomEvent;
 
     //References
     public GameObject currentLocation; //Reference to the room crew member is in.
     public GameObject commandInterface; //Reference to the command interface.
+    public RoomEventHandler roomEventHandler; //Reference to the room event handler.
 
     public bool canGoNorth, canGoEast, canGoSouth, canGoWest;
     public bool turnIsOver;
@@ -41,6 +43,12 @@ public class CrewMember : MonoBehaviour
                 transform.position = endPosition;
                 isMoving = false;
                 UpdateCommandInterface();
+
+                if (triggerRoomEvent)
+                {
+                    roomEventHandler.TriggerRoomEvent(gameObject);
+                    triggerRoomEvent = false;
+                }
                 return;
             }
 
@@ -50,13 +58,14 @@ public class CrewMember : MonoBehaviour
 
     //Called when a direction on the command interface is clicked
     //Causes the code in the this.update loop to run.
-    public void Move(GameObject targetRoom)
+    public void Move(GameObject targetRoom, bool isNewRoom)
     {
         isMoving = true;
         startTime = Time.time;
         startPosition = transform.position;
         endPosition = new Vector3(targetRoom.transform.position.x, transform.position.y, targetRoom.transform.position.z);
         currentLocation = targetRoom;
+        triggerRoomEvent = isNewRoom;
     }
 
     void OnMouseDown()

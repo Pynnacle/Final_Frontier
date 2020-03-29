@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Test Event
   description: This event is a test.
-  buttonText: Okay
+  buttonText: Affirmative
   statChecked: 0
   goodOutcomeStatAffected: 0
   goodOutcomeStatDifference: 2
