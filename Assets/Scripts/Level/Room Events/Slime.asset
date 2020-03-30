@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53bff3b17a9707c43b3410ebd5be0561, type: 3}
+  m_Name: Slime
+  m_EditorClassIdentifier: 
+  name: Slimy Stuff
+  description: The walls of this room are covered in a thick, mucus-like slime accompanied
+    by the stench of acrid smoke. It permeates the air, and you try to figure out
+    what it is before proceeding.
+  buttonText: What is it?
+  statChecked: 2
+  goodOutcomeStatAffected: 2
+  goodOutcomeStatDifference: 1
+  goodOutcomeText: Recognizing this as the result of a plasma bomb experiment gone
+    wrong, you know the danger has passed. Continuing without fear, your Intelligence
+    increases by 1!
+  neutralOutcomeStatAffected: 0
+  neutralOutcomeStatDifference: 0
+  neutralOutcomeText: "You analyze the potential dangers before proceeding. The stuff
+    doesn\u2019t seem dangerous, but it sure does smell."
+  badOutcomeStatAffected: 0
+  badOutcomeStatDifference: -1
+  badOutcomeText: Not knowing at all what this stuff is, you try sticking your hand
+    into it. Exhausted by the effort it takes to get it back out, your Power decreases
+    by 1.
