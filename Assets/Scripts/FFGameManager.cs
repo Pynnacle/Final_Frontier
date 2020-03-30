@@ -16,7 +16,7 @@ public class FFGameManager : MonoBehaviour
     public Text turnNumberDisplay;
 
 
-    int turnNumber = 1;
+    public int turnNumber = 1;
     public int turnLimit;
     public CrewMember[] crewMembersInMission;
 

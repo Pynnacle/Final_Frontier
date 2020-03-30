@@ -57,7 +57,7 @@ public class CrewMember : MonoBehaviour
                 }
 
                 //for now there is a 10% chance that you'll get the power cell needed to complete the mission whenever a crew member enters a new room.
-                if (Random.Range(1, 101) <= 10 && FFGameManager.whichTurnTheObjectiveWasFound == 0 && currentLocation != roomStartedOn) {
+                if (gameManager.turnNumber > 5 && Random.Range(1, 101) <= (10 * gameManager.turnLimit / (gameManager.turnLimit - gameManager.turnNumber)) && FFGameManager.whichTurnTheObjectiveWasFound == 0 && currentLocation != roomStartedOn) {
 
                     hasPowerCell = true;
                     gameManager.FoundPowerCell();

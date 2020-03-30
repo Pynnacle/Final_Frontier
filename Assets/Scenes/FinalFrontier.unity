@@ -1920,7 +1920,8 @@ MonoBehaviour:
   missionFailedBanner: {fileID: 1392530236}
   gotPowerCellBanner: {fileID: 383221798}
   turnNumberDisplay: {fileID: 692254072}
-  turnLimit: 5
+  turnNumber: 1
+  turnLimit: 20
   crewMembersInMission:
   - {fileID: 1176149270}
   - {fileID: 982452590}
