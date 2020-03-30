@@ -20,6 +20,7 @@ public class CrewMember : MonoBehaviour
 
     //Movement
     public float moveDuration;
+    public int movesRemaining;
     float startTime = 0f, timeElapsed;
     Vector3 startPosition, endPosition;
     bool isMoving;
@@ -49,6 +50,15 @@ public class CrewMember : MonoBehaviour
                 {
                     roomEventHandler.TriggerRoomEvent(gameObject);
                     triggerRoomEvent = false;
+                    turnIsOver = true;
+                }
+                else
+                {
+                    movesRemaining--;
+                    if(movesRemaining <= 0)
+                    {
+                        turnIsOver = true;
+                    }
                 }
                 return;
             }
@@ -74,9 +84,11 @@ public class CrewMember : MonoBehaviour
 
     void OnMouseDown()
     {
-        Debug.Log(name + " was selected.");
-        commandInterface.SetActive(true);
-        UpdateCommandInterface();
+        if (!turnIsOver) {
+            Debug.Log(name + " was selected.");
+            commandInterface.SetActive(true);
+            UpdateCommandInterface();
+        }
     }
 
     /* <Summary>

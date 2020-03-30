@@ -335,6 +335,7 @@ public class RoomEventHandler : MonoBehaviour
     public void HideOutcomeOfEvent()
     {
         outcomeOfEventPopup.SetActive(false);
-        commandInterface.GetComponent<CommandInterface>().UpdateCrewMemberProfile();
+        commandInterface.GetComponent<CommandInterface>().TurnEnded();
+        //commandInterface.GetComponent<CommandInterface>().UpdateCrewMemberProfile();
     }
 }
