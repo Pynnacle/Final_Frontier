@@ -154,6 +154,7 @@ public class CommandInterface : MonoBehaviour
     void MoveCrewMember()
     {
         selectedCrewMember.GetComponent<CrewMember>().Move(newRoom, true);
+        FFGameManager.newRoomsExplored += 1;
     }
 
     public void TurnEnded()

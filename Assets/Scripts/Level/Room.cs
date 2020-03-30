@@ -5,6 +5,7 @@ using UnityEngine;
 public class Room : MonoBehaviour
 {
     public bool hasNorthExit, hasEastExit, hasSouthExit, hasWestExit;
+    public bool containsPowerCell;
     public GameObject northRoomSensor, eastRoomSensor, southRoomSensor, westRoomSensor;
     public MeshRenderer tile; //Temporary
     public GameObject roomMesh; //Temporary

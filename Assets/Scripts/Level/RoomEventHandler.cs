@@ -51,6 +51,7 @@ public class RoomEventHandler : MonoBehaviour
                     }
 
                     outcomeOfEvent = currentEvent.goodOutcomeText.Replace("[character]", selectedCrewMember.GetComponent<CrewMember>().name);
+                    FFGameManager.goodEventOutcomes += 1;
 
                 }
                 else if (randomNum + selectedCrewMember.GetComponent<CrewMember>().power > 3 && randomNum + selectedCrewMember.GetComponent<CrewMember>().power < 9)
@@ -95,6 +96,7 @@ public class RoomEventHandler : MonoBehaviour
                     }
 
                     outcomeOfEvent = currentEvent.badOutcomeText.Replace("[character]", selectedCrewMember.GetComponent<CrewMember>().name);
+                    FFGameManager.badEventOutcomes += 1;
                 }
 
                 break;
@@ -121,6 +123,7 @@ public class RoomEventHandler : MonoBehaviour
                     }
 
                     outcomeOfEvent = currentEvent.goodOutcomeText.Replace("[character]", selectedCrewMember.GetComponent<CrewMember>().name);
+                    FFGameManager.goodEventOutcomes += 1;
 
                 }
                 else if (randomNum + selectedCrewMember.GetComponent<CrewMember>().agility > 3 && randomNum + selectedCrewMember.GetComponent<CrewMember>().agility < 9)
@@ -165,6 +168,7 @@ public class RoomEventHandler : MonoBehaviour
                     }
 
                     outcomeOfEvent = currentEvent.badOutcomeText.Replace("[character]", selectedCrewMember.GetComponent<CrewMember>().name);
+                    FFGameManager.badEventOutcomes += 1;
                 }
 
                 break;
@@ -191,6 +195,7 @@ public class RoomEventHandler : MonoBehaviour
                     }
 
                     outcomeOfEvent = currentEvent.goodOutcomeText.Replace("[character]", selectedCrewMember.GetComponent<CrewMember>().name);
+                    FFGameManager.goodEventOutcomes += 1;
 
                 }
                 else if (randomNum + selectedCrewMember.GetComponent<CrewMember>().intellect > 3 && randomNum + selectedCrewMember.GetComponent<CrewMember>().intellect < 9)
@@ -235,6 +240,7 @@ public class RoomEventHandler : MonoBehaviour
                     }
 
                     outcomeOfEvent = currentEvent.badOutcomeText.Replace("[character]", selectedCrewMember.GetComponent<CrewMember>().name);
+                    FFGameManager.badEventOutcomes += 1;
                 }
 
                 break;
@@ -261,6 +267,7 @@ public class RoomEventHandler : MonoBehaviour
                     }
 
                     outcomeOfEvent = currentEvent.goodOutcomeText.Replace("[character]", selectedCrewMember.GetComponent<CrewMember>().name);
+                    FFGameManager.goodEventOutcomes += 1;
 
                 }
                 else if (randomNum + selectedCrewMember.GetComponent<CrewMember>().endurance > 3 && randomNum + selectedCrewMember.GetComponent<CrewMember>().endurance < 9)
@@ -305,6 +312,7 @@ public class RoomEventHandler : MonoBehaviour
                     }
 
                     outcomeOfEvent = currentEvent.badOutcomeText.Replace("[character]", selectedCrewMember.GetComponent<CrewMember>().name);
+                    FFGameManager.badEventOutcomes += 1;
                 }
                 break;
         }

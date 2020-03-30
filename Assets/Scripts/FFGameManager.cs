@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Analytics;
 
 public class FFGameManager : MonoBehaviour
@@ -11,7 +12,11 @@ public class FFGameManager : MonoBehaviour
     public static int badEventOutcomes;
     public static int whichTurnTheObjectiveWasFound;
 
-    int turnNumber;
+    public GameObject missionCompleteBanner, missionFailedBanner, gotPowerCellBanner; 
+    public Text turnNumberDisplay;
+
+
+    int turnNumber = 1;
     public int turnLimit;
     public CrewMember[] crewMembersInMission;
 
@@ -22,51 +27,77 @@ public class FFGameManager : MonoBehaviour
         if(crewMembersInMission[0].turnIsOver && crewMembersInMission[1].turnIsOver)
         {
             turnNumber++;
-            //
+            turnNumberDisplay.text = "Turn " + turnNumber.ToString();
+            //...
             foreach (CrewMember crewMember in crewMembersInMission)
             {
                 crewMember.turnIsOver = false;
+                crewMember.movesRemaining = crewMember.agility;
+                crewMember.selectableIndication.SetActive(true);
             }
 
-            if (turnNumber >= turnLimit)
+            if (turnNumber > turnLimit) //Shouldn't use >= because we want the last turn to end.
             {
-                //Failure
+                MissionFailed();
             }
 
         }
 
     }
 
+    public void MissionComplete()
+    {
+        missionCompleteBanner.SetActive(true);
+        SendAnalytics();
+    }
+
+    public void MissionFailed()
+    {
+        missionFailedBanner.SetActive(true);
+        SendAnalytics();
+    }
+
+    public void FoundPowerCell()
+    {
+        gotPowerCellBanner.SetActive(true);
+        whichTurnTheObjectiveWasFound = turnNumber;
+    }
+
+    public void HideGotPowerCellBanner()
+    {
+        gotPowerCellBanner.SetActive(false);
+    }
+
     void SendAnalytics()
     {
-        // 1. How many new rooms were explored.
-        Analytics.CustomEvent("new_rooms_explored", new Dictionary<string, object>
+        // 1. How much time the mission took.
+        Analytics.CustomEvent("Mission Play Time", new Dictionary<string, object>
     {
-        { "new_rooms_explored", newRoomsExplored }
+        { "Mission Play Time", Time.timeSinceLevelLoad }
     });
 
-        // 2. How much time the mission took.
-        Analytics.CustomEvent("mission_time", new Dictionary<string, object>
+        // 2. How many new rooms were explored.
+        Analytics.CustomEvent("Number of New Rooms Explored", new Dictionary<string, object>
     {
-        { "mission_time", Time.timeSinceLevelLoad }
+        { "Number of New Rooms Explored", newRoomsExplored }
     });
 
         // 3. How many event outcomes were good.
-        Analytics.CustomEvent("mission_time", new Dictionary<string, object>
+        Analytics.CustomEvent("Number of Good Outcomes", new Dictionary<string, object>
     {
-        { "mission_time", Time.timeSinceLevelLoad }
+        { "Number of Good Outcomes", goodEventOutcomes }
     });
 
         // 4. How many event outcomes were bad.
-        Analytics.CustomEvent("mission_time", new Dictionary<string, object>
+        Analytics.CustomEvent("Number of Bad Outcomes", new Dictionary<string, object>
     {
-        { "mission_time", Time.timeSinceLevelLoad }
+        { "Number of Bad Outcomes", badEventOutcomes }
     });
 
         // 5. On which turn was the objective found.
-        Analytics.CustomEvent("mission_time", new Dictionary<string, object>
+        Analytics.CustomEvent("Which Turn Power Cell Was Obtained", new Dictionary<string, object>
     {
-        { "mission_time", Time.timeSinceLevelLoad }
+        { "Which Turn Power Cell Was Obtained", whichTurnTheObjectiveWasFound }
     });
     }
 }

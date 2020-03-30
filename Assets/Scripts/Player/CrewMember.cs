@@ -27,12 +27,16 @@ public class CrewMember : MonoBehaviour
     bool triggerRoomEvent;
 
     //References
+    public GameObject roomStartedOn;
     public GameObject currentLocation; //Reference to the room crew member is in.
     public GameObject commandInterface; //Reference to the command interface.
     public RoomEventHandler roomEventHandler; //Reference to the room event handler.
+    public FFGameManager gameManager;
+    public GameObject selectableIndication;
 
     public bool canGoNorth, canGoEast, canGoSouth, canGoWest;
     public bool turnIsOver;
+    public bool hasPowerCell;
 
     // Update is called once per frame
     void Update()
@@ -46,20 +50,37 @@ public class CrewMember : MonoBehaviour
                 isMoving = false;
                 UpdateCommandInterface();
 
-                if (triggerRoomEvent)
+                //If you bring the power cell back to the room you complete the mission (and damn this code is getting really damn messy)
+                if(currentLocation == roomStartedOn && hasPowerCell)
                 {
-                    roomEventHandler.TriggerRoomEvent(gameObject);
-                    triggerRoomEvent = false;
-                    turnIsOver = true;
+                    gameManager.MissionComplete();
                 }
-                else
-                {
-                    movesRemaining--;
-                    if(movesRemaining <= 0)
+
+                //for now there is a 10% chance that you'll get the power cell needed to complete the mission whenever a crew member enters a new room.
+                if (Random.Range(1, 101) <= 10 && FFGameManager.whichTurnTheObjectiveWasFound == 0 && currentLocation != roomStartedOn) {
+
+                    hasPowerCell = true;
+                    gameManager.FoundPowerCell();
+
+                } else {
+
+                    if (triggerRoomEvent)
                     {
+                        roomEventHandler.TriggerRoomEvent(gameObject);
+                        triggerRoomEvent = false;
                         turnIsOver = true;
+                        selectableIndication.SetActive(false);
+                    }
+                    else
+                    {
+                        if (movesRemaining <= 0)
+                        {
+                            turnIsOver = true;
+                            selectableIndication.SetActive(false);
+                        }
                     }
                 }
+
                 return;
             }
 
@@ -80,6 +101,7 @@ public class CrewMember : MonoBehaviour
         endPosition = new Vector3(targetRoom.transform.position.x, transform.position.y, targetRoom.transform.position.z);
         currentLocation = targetRoom;
         triggerRoomEvent = isNewRoom;
+        movesRemaining--;
     }
 
     void OnMouseDown()
