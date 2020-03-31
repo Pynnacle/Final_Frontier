@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/FinalFrontier.unity
+    guid: c19b7d8208b85ad4b8510a6a70872027
   m_configObjects: {}
