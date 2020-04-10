@@ -214,25 +214,37 @@ public class Room : MonoBehaviour
         //If there is an exit on the north && there is no existing room to the north, spawn an effect that indicates you can go north.
         if (hasNorthExit && !northRoomSensor.GetComponent<AdjacentRoomDetector>().hit)
         {
-            Instantiate<GameObject>(unexploredRoomIndicator, new Vector3(transform.position.x, transform.position.y, transform.position.z + 10), Quaternion.Euler(-90f, 0f, 0f));
+            //Instantiate<GameObject>(unexploredRoomIndicator, new Vector3(transform.position.x, transform.position.y, transform.position.z + 10), Quaternion.Euler(-90f, 0f, 0f));
+            GameObject roomIndicator = ObjectPooler.SharedInstance.GetPooledIndicator();
+            roomIndicator.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + 10);
+            roomIndicator.SetActive(true);
         }
 
         //If there is an exit on the east && there is no existing room to the east, spawn an effect that indicates you can go east.
         if (hasEastExit && !eastRoomSensor.GetComponent<AdjacentRoomDetector>().hit)
         {
-            Instantiate<GameObject>(unexploredRoomIndicator, new Vector3(transform.position.x + 10, transform.position.y, transform.position.z), Quaternion.Euler(-90f, 0f, 0f));
+            //Instantiate<GameObject>(unexploredRoomIndicator, new Vector3(transform.position.x + 10, transform.position.y, transform.position.z), Quaternion.Euler(-90f, 0f, 0f));
+            GameObject roomIndicator = ObjectPooler.SharedInstance.GetPooledIndicator();
+            roomIndicator.transform.position = new Vector3(transform.position.x + 10, transform.position.y, transform.position.z);
+            roomIndicator.SetActive(true);
         }
 
         //If there is an exit on the south && there is no existing room to the south, spawn an effect that indicates you can go south.
         if (hasSouthExit && !southRoomSensor.GetComponent<AdjacentRoomDetector>().hit)
         {
-            Instantiate<GameObject>(unexploredRoomIndicator, new Vector3(transform.position.x, transform.position.y, transform.position.z - 10), Quaternion.Euler(-90f, 0f, 0f));
+            //Instantiate<GameObject>(unexploredRoomIndicator, new Vector3(transform.position.x, transform.position.y, transform.position.z - 10), Quaternion.Euler(-90f, 0f, 0f));
+            GameObject roomIndicator = ObjectPooler.SharedInstance.GetPooledIndicator();
+            roomIndicator.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 10);
+            roomIndicator.SetActive(true);
         }
 
         //If there is an exit on the west && there is no existing room to the west, spawn an effect that indicates you can go west.
         if (hasWestExit && !westRoomSensor.GetComponent<AdjacentRoomDetector>().hit)
         {
-            Instantiate<GameObject>(unexploredRoomIndicator, new Vector3(transform.position.x - 10, transform.position.y, transform.position.z), Quaternion.Euler(-90f, 0f, 0f));
+            //Instantiate<GameObject>(unexploredRoomIndicator, new Vector3(transform.position.x - 10, transform.position.y, transform.position.z), Quaternion.Euler(-90f, 0f, 0f));
+            GameObject roomIndicator = ObjectPooler.SharedInstance.GetPooledIndicator();
+            roomIndicator.transform.position = new Vector3(transform.position.x - 10, transform.position.y, transform.position.z);
+            roomIndicator.SetActive(true);
         }
 
     }

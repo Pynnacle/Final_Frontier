@@ -7,8 +7,10 @@ public class ObjectPooler : MonoBehaviour
 
     public static ObjectPooler SharedInstance;
 
-    public List<GameObject> pooledObjects;
-    public GameObject[] objectToPool;
+    public List<GameObject> roomPool;
+    public List<GameObject> indicatorPool;
+    public GameObject[] roomsToPool;
+    public GameObject roomIndicatorPrefab;
     public int amountToPool;
     bool inActiveObjectFound = false;
     int randomRoom;
@@ -21,36 +23,54 @@ public class ObjectPooler : MonoBehaviour
 
     void Start()
     {
-        pooledObjects = new List<GameObject>();
+        roomPool = new List<GameObject>();
 
         for (int i = 0; i < amountToPool; i++)
         {
-            GameObject obj = (GameObject)Instantiate(objectToPool[Random.Range(0, objectToPool.Length)]);
+            GameObject obj = (GameObject)Instantiate(roomsToPool[Random.Range(0, roomsToPool.Length)]);
             obj.SetActive(false);
-            pooledObjects.Add(obj);
+            roomPool.Add(obj);
+        }
+
+        indicatorPool = new List<GameObject>();
+
+        for (int i = 0; i < amountToPool; i++)
+        {
+            GameObject obj = (GameObject)Instantiate(roomIndicatorPrefab);
+            obj.SetActive(false);
+            indicatorPool.Add(obj);
         }
     }
 
-    public GameObject GetPooledObject()
+    public GameObject GetPooledRoom()
     {
         //1
         while(!inActiveObjectFound)
         {
             randomRoom = Random.Range(0, amountToPool);
             //2
-            if (!pooledObjects[randomRoom].activeInHierarchy)
+            if (!roomPool[randomRoom].activeInHierarchy)
             {
-                return pooledObjects[randomRoom];
+                return roomPool[randomRoom];
             }
         }
         //3   
         return null;
     }
 
-
-    // Update is called once per frame
-    void Update()
+    public GameObject GetPooledIndicator()
     {
-        
+        //1
+        for (int i = 0; i < indicatorPool.Count; i++)
+        {
+            //2
+            if (!indicatorPool[i].activeInHierarchy)
+            {
+                return indicatorPool[i];
+            }
+        }
+        //3   
+        return null;
     }
+
 }

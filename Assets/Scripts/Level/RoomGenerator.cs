@@ -15,7 +15,7 @@ public class RoomGenerator : MonoBehaviour
     public GameObject GenerateRoom_North(GameObject currentRoom)
     {
         Vector3 newRoomPosition = new Vector3(currentRoom.transform.position.x, currentRoom.transform.position.y, currentRoom.transform.position.z + 10);
-        GameObject roomGenerated = ObjectPooler.SharedInstance.GetPooledObject();
+        GameObject roomGenerated = ObjectPooler.SharedInstance.GetPooledRoom();
         roomGenerated.transform.position = newRoomPosition;
         roomGenerated.SetActive(true);
         Instantiate<GameObject>(roomGenerationLightEffect, newRoomPosition, Quaternion.identity);
@@ -32,7 +32,7 @@ public class RoomGenerator : MonoBehaviour
     public GameObject GenerateRoom_East(GameObject currentRoom)
     {
         Vector3 newRoomPosition = new Vector3(currentRoom.transform.position.x + 10, currentRoom.transform.position.y, currentRoom.transform.position.z);
-        GameObject roomGenerated = ObjectPooler.SharedInstance.GetPooledObject();
+        GameObject roomGenerated = ObjectPooler.SharedInstance.GetPooledRoom();
         roomGenerated.transform.position = newRoomPosition;
         roomGenerated.SetActive(true);
         Instantiate<GameObject>(roomGenerationLightEffect, newRoomPosition, Quaternion.identity);
@@ -49,7 +49,7 @@ public class RoomGenerator : MonoBehaviour
     public GameObject GenerateRoom_South(GameObject currentRoom)
     {
         Vector3 newRoomPosition = new Vector3(currentRoom.transform.position.x, currentRoom.transform.position.y, currentRoom.transform.position.z - 10);
-        GameObject roomGenerated = ObjectPooler.SharedInstance.GetPooledObject();
+        GameObject roomGenerated = ObjectPooler.SharedInstance.GetPooledRoom();
         roomGenerated.transform.position = newRoomPosition;
         roomGenerated.SetActive(true);
         Instantiate<GameObject>(roomGenerationLightEffect, newRoomPosition, Quaternion.identity);
@@ -66,7 +66,7 @@ public class RoomGenerator : MonoBehaviour
     public GameObject GenerateRoom_West(GameObject currentRoom)
     {
         Vector3 newRoomPosition = new Vector3(currentRoom.transform.position.x - 10, currentRoom.transform.position.y, currentRoom.transform.position.z);
-        GameObject roomGenerated = ObjectPooler.SharedInstance.GetPooledObject();
+        GameObject roomGenerated = ObjectPooler.SharedInstance.GetPooledRoom();
         roomGenerated.transform.position = newRoomPosition;
         roomGenerated.SetActive(true);
         Instantiate<GameObject>(roomGenerationLightEffect, newRoomPosition, Quaternion.identity);

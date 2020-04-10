@@ -41964,12 +41964,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 667975a23ee33374ea16d188a5e92ca8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pooledObjects: []
-  objectToPool:
+  roomPool: []
+  indicatorPool: []
+  roomsToPool:
   - {fileID: 4590191336104912156, guid: 3f373ae4c95da6142b41d126ce5826b1, type: 3}
   - {fileID: 9038641241754552663, guid: 61fb0f1c403c9744385ad43849ece318, type: 3}
   - {fileID: 1679926433628960065, guid: f00a09e195b4fe14aba8b548c4fc2804, type: 3}
   - {fileID: 7974421684343537537, guid: 859349484c789124b83effaf96816556, type: 3}
+  roomIndicatorPrefab: {fileID: 6885172865088894678, guid: 61ef72c7655acf04cb7259e8ffdb7a8f,
+    type: 3}
   amountToPool: 50
 --- !u!4 &1049404075 stripped
 Transform:
