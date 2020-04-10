@@ -15,6 +15,7 @@ public class AdjacentRoomDetector : MonoBehaviour
     public GameObject adjacentRoom;
 
     // <Summary> This update loop is no longer necessary and can be completely commented out or removed.
+    /*
     void Update()
     {
         CheckForAdjacentRoom();
@@ -27,6 +28,7 @@ public class AdjacentRoomDetector : MonoBehaviour
             Debug.DrawRay(transform.position, transform.right * magnitude, noAdjacentRoomDetected);
         }
     }
+    */
 
 
     /* <Summary> Raycast is used to check for an adjacent room.
