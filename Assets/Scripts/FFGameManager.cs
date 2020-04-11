@@ -12,7 +12,7 @@ public class FFGameManager : MonoBehaviour
     public static int badEventOutcomes;
     public static int whichTurnTheObjectiveWasFound;
 
-    public GameObject missionCompleteBanner, missionFailedBanner, gotPowerCellBanner; 
+    public GameObject missionCompleteBanner, missionFailedBanner, gotPowerCellBanner, missionObjective; 
     public Text turnNumberDisplay;
 
 
@@ -66,6 +66,11 @@ public class FFGameManager : MonoBehaviour
     public void HideGotPowerCellBanner()
     {
         gotPowerCellBanner.SetActive(false);
+    }
+
+    public void HideMissionObjective()
+    {
+        missionObjective.SetActive(false);
     }
 
     void SendAnalytics()
