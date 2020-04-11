@@ -107,7 +107,7 @@ public class CrewMember : MonoBehaviour
     void OnMouseDown()
     {
         if (!turnIsOver) {
-            Debug.Log(name + " was selected.");
+            //Debug.Log(name + " was selected.");
             commandInterface.SetActive(true);
             UpdateCommandInterface();
         }
